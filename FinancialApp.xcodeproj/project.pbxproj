@@ -16,6 +16,8 @@
 		24224D71269966F70077CD2B /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24224D70269966F70077CD2B /* SearchTableViewCell.swift */; };
 		24224D7526996CD20077CD2B /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24224D7426996CD20077CD2B /* APIService.swift */; };
 		24224D7A26996E240077CD2B /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24224D7926996E240077CD2B /* SearchResults.swift */; };
+		24E6AF3F26A92D8B00C2159D /* SearchPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E6AF3E26A92D8B00C2159D /* SearchPlaceholderView.swift */; };
+		24E6AF4326A9316500C2159D /* UIAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E6AF4226A9316500C2159D /* UIAnimatable.swift */; };
 		FAD1510C150CD33598E59C92 /* Pods_FinancialApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AE40C2E03BC5340B2EFB67 /* Pods_FinancialApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,8 @@
 		24224D70269966F70077CD2B /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		24224D7426996CD20077CD2B /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		24224D7926996E240077CD2B /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
+		24E6AF3E26A92D8B00C2159D /* SearchPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceholderView.swift; sourceTree = "<group>"; };
+		24E6AF4226A9316500C2159D /* UIAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAnimatable.swift; sourceTree = "<group>"; };
 		76BB5784164794E910BA71A1 /* Pods-FinancialApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinancialApp.release.xcconfig"; path = "Target Support Files/Pods-FinancialApp/Pods-FinancialApp.release.xcconfig"; sourceTree = "<group>"; };
 		A7AE40C2E03BC5340B2EFB67 /* Pods_FinancialApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinancialApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B786C80D1D915F97E9D9E1B1 /* Pods-FinancialApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinancialApp.debug.xcconfig"; path = "Target Support Files/Pods-FinancialApp/Pods-FinancialApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,6 +73,7 @@
 		24224D532698D6810077CD2B /* FinancialApp */ = {
 			isa = PBXGroup;
 			children = (
+				24E6AF4126A9314E00C2159D /* Protocol */,
 				24224D7826996E150077CD2B /* Model */,
 				24224D7326996CBD0077CD2B /* Service */,
 				24224D6F269966C90077CD2B /* Controller */,
@@ -87,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				24224D70269966F70077CD2B /* SearchTableViewCell.swift */,
+				24E6AF3E26A92D8B00C2159D /* SearchPlaceholderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -113,6 +119,14 @@
 				24224D7926996E240077CD2B /* SearchResults.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		24E6AF4126A9314E00C2159D /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				24E6AF4226A9316500C2159D /* UIAnimatable.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		6AFBF0D91D89139C43D6C6F7 /* Frameworks */ = {
@@ -247,11 +261,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				24224D592698D6810077CD2B /* SearchTableViewController.swift in Sources */,
+				24E6AF4326A9316500C2159D /* UIAnimatable.swift in Sources */,
 				24224D7526996CD20077CD2B /* APIService.swift in Sources */,
 				24224D71269966F70077CD2B /* SearchTableViewCell.swift in Sources */,
 				24224D552698D6810077CD2B /* AppDelegate.swift in Sources */,
 				24224D7A26996E240077CD2B /* SearchResults.swift in Sources */,
 				24224D572698D6810077CD2B /* SceneDelegate.swift in Sources */,
+				24E6AF3F26A92D8B00C2159D /* SearchPlaceholderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
