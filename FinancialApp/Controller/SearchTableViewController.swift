@@ -53,7 +53,7 @@ class SearchTableViewController: UITableViewController, UIAnimatbale {
         $searchQuery
             .debounce(for: .milliseconds(750), scheduler: RunLoop.main)
             .sink { [unowned self] (searchQuery) in
-                
+                guard !searchQuery.isEmpty else { return }
                 showLoadingAnimation()
                 self.apiService.fetchSymbolsPublisher(keywords: searchQuery).sink { (completion) in
                     hideLoadingAnimation()
@@ -93,6 +93,10 @@ class SearchTableViewController: UITableViewController, UIAnimatbale {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //if there are now search results return 0
         return searchResults?.items.count ?? 0
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showCalculator", sender: nil)
     }
 
 }
