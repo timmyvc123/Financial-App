@@ -16,6 +16,9 @@
 		24224D71269966F70077CD2B /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24224D70269966F70077CD2B /* SearchTableViewCell.swift */; };
 		24224D7526996CD20077CD2B /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24224D7426996CD20077CD2B /* APIService.swift */; };
 		24224D7A26996E240077CD2B /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24224D7926996E240077CD2B /* SearchResults.swift */; };
+		247875D826AF4895005AE6BB /* TimeSeriesMonthlyAdjusted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247875D726AF4895005AE6BB /* TimeSeriesMonthlyAdjusted.swift */; };
+		247875DB26AFCFA9005AE6BB /* CalculatorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247875DA26AFCFA9005AE6BB /* CalculatorTableViewController.swift */; };
+		247875DE26AFD07A005AE6BB /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247875DD26AFD07A005AE6BB /* Asset.swift */; };
 		24E6AF3F26A92D8B00C2159D /* SearchPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E6AF3E26A92D8B00C2159D /* SearchPlaceholderView.swift */; };
 		24E6AF4326A9316500C2159D /* UIAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E6AF4226A9316500C2159D /* UIAnimatable.swift */; };
 		FAD1510C150CD33598E59C92 /* Pods_FinancialApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AE40C2E03BC5340B2EFB67 /* Pods_FinancialApp.framework */; };
@@ -33,6 +36,9 @@
 		24224D70269966F70077CD2B /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		24224D7426996CD20077CD2B /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		24224D7926996E240077CD2B /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
+		247875D726AF4895005AE6BB /* TimeSeriesMonthlyAdjusted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesMonthlyAdjusted.swift; sourceTree = "<group>"; };
+		247875DA26AFCFA9005AE6BB /* CalculatorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTableViewController.swift; sourceTree = "<group>"; };
+		247875DD26AFD07A005AE6BB /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 		24E6AF3E26A92D8B00C2159D /* SearchPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceholderView.swift; sourceTree = "<group>"; };
 		24E6AF4226A9316500C2159D /* UIAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAnimatable.swift; sourceTree = "<group>"; };
 		76BB5784164794E910BA71A1 /* Pods-FinancialApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinancialApp.release.xcconfig"; path = "Target Support Files/Pods-FinancialApp/Pods-FinancialApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				24224D582698D6810077CD2B /* SearchTableViewController.swift */,
+				247875DA26AFCFA9005AE6BB /* CalculatorTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -117,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				24224D7926996E240077CD2B /* SearchResults.swift */,
+				247875D726AF4895005AE6BB /* TimeSeriesMonthlyAdjusted.swift */,
+				247875DD26AFD07A005AE6BB /* Asset.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -263,8 +272,11 @@
 				24224D592698D6810077CD2B /* SearchTableViewController.swift in Sources */,
 				24E6AF4326A9316500C2159D /* UIAnimatable.swift in Sources */,
 				24224D7526996CD20077CD2B /* APIService.swift in Sources */,
+				247875DE26AFD07A005AE6BB /* Asset.swift in Sources */,
+				247875DB26AFCFA9005AE6BB /* CalculatorTableViewController.swift in Sources */,
 				24224D71269966F70077CD2B /* SearchTableViewCell.swift in Sources */,
 				24224D552698D6810077CD2B /* AppDelegate.swift in Sources */,
+				247875D826AF4895005AE6BB /* TimeSeriesMonthlyAdjusted.swift in Sources */,
 				24224D7A26996E240077CD2B /* SearchResults.swift in Sources */,
 				24224D572698D6810077CD2B /* SceneDelegate.swift in Sources */,
 				24E6AF3F26A92D8B00C2159D /* SearchPlaceholderView.swift in Sources */,
