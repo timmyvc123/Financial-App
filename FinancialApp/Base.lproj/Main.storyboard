@@ -95,7 +95,7 @@
         <scene sceneID="Lhy-yw-MEl">
             <objects>
                 <tableViewController id="HeG-Xx-vI6" customClass="CalculatorTableViewController" customModule="FinancialApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="waP-rk-IDB">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="waP-rk-IDB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -277,7 +277,7 @@
                                                                         <constraint firstAttribute="height" constant="36" id="Z9I-QN-hyj"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
-                                                                    <textInputTraits key="textInputTraits"/>
+                                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="qcI-tj-O9a">
                                                                     <rect key="frame" x="0.0" y="32" width="382" height="14"/>
@@ -310,7 +310,7 @@
                                                                         <constraint firstAttribute="height" constant="36" id="X9X-yI-dcO"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
-                                                                    <textInputTraits key="textInputTraits"/>
+                                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="cn7-dx-vNd">
                                                                     <rect key="frame" x="0.0" y="32" width="382" height="14"/>
@@ -385,35 +385,67 @@
                     </tableView>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="0jg-94-4ga"/>
                     <connections>
+                        <outlet property="initalInvestmentAmountTextField" destination="LCq-o5-FxX" id="ChJ-FK-oCv"/>
+                        <outlet property="initialDateOfInvestmentTextField" destination="tX4-e0-fVl" id="H3a-WD-NzY"/>
                         <outlet property="investmentAmountCurrencyLabel" destination="FqB-wq-mLZ" id="I9I-gK-TqP"/>
+                        <outlet property="monthlyDollarCostAveragingTextField" destination="0WD-ns-HVd" id="YTb-wN-OX3"/>
                         <outlet property="nameLabel" destination="Jnb-rc-qe7" id="Gm9-gG-ErL"/>
                         <outlet property="symbolLabel" destination="khF-i3-uay" id="x1S-4B-Ed4"/>
                         <outletCollection property="currencyLabels" destination="lPP-Dr-it9" collectionClass="NSMutableArray" id="16k-th-pGp"/>
                         <outletCollection property="currencyLabels" destination="OvZ-gN-F1T" collectionClass="NSMutableArray" id="w0u-Mb-LdG"/>
                         <outletCollection property="currencyLabels" destination="rhZ-BY-pXd" collectionClass="NSMutableArray" id="kYF-NV-oNU"/>
-                        <segue destination="d05-gc-g51" kind="show" id="ecI-Ft-kKs"/>
+                        <segue destination="d05-gc-g51" kind="show" identifier="showDateSelection" id="ecI-Ft-kKs"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Xj-XA-2WC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1850.7246376811595" y="-109.15178571428571"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Date Selection Table View Controller-->
         <scene sceneID="J39-jv-5fz">
             <objects>
-                <tableViewController id="d05-gc-g51" sceneMemberID="viewController">
+                <tableViewController id="d05-gc-g51" customClass="DateSelectionTableViewController" customModule="FinancialApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kFH-Os-9NA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Q5U-hi-Sjj">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="cellId" rowHeight="64" id="Q5U-hi-Sjj" customClass="DateSelectionTableViewCell" customModule="FinancialApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q5U-hi-Sjj" id="5l9-xA-URx">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="370" height="64"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="hxU-Cs-KWy">
+                                            <rect key="frame" x="16" y="8" width="338" height="48"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="July 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S96-AC-enK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="338" height="29"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cF8-3V-IvJ">
+                                                    <rect key="frame" x="0.0" y="29" width="338" height="19"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hxU-Cs-KWy" firstAttribute="leading" secondItem="5l9-xA-URx" secondAttribute="leading" constant="16" id="Zgb-BA-foF"/>
+                                        <constraint firstAttribute="bottom" secondItem="hxU-Cs-KWy" secondAttribute="bottom" constant="8" id="btW-mM-oXK"/>
+                                        <constraint firstItem="hxU-Cs-KWy" firstAttribute="top" secondItem="5l9-xA-URx" secondAttribute="top" constant="8" id="hRZ-Fj-icr"/>
+                                        <constraint firstAttribute="trailing" secondItem="hxU-Cs-KWy" secondAttribute="trailing" constant="16" id="i7x-dB-mtD"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="S96-AC-enK" id="cEQ-eA-uol"/>
+                                    <outlet property="monthsAgoLabel" destination="cF8-3V-IvJ" id="zgW-nV-dAS"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -425,7 +457,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SsO-8b-3Jd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2717" y="-109"/>
+            <point key="canvasLocation" x="2715.9420289855075" y="-109.15178571428571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QBT-Bp-ws1">
