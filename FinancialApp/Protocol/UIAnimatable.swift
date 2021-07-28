@@ -10,17 +10,18 @@ import MBProgressHUD
 
 //protocol keeps code cleaner
 
-protocol UIAnimatbale where Self: UIViewController {
+protocol UIAnimatable where Self: UIViewController {
     func showLoadingAnimation()
     func hideLoadingAnimation()
 }
 
-extension UIAnimatbale {
+extension UIAnimatable {
     
     func showLoadingAnimation() {
         DispatchQueue.main.async {
             MBProgressHUD.showAdded(to: self.view, animated: true)
         }
+        
     }
     
     func hideLoadingAnimation() {

@@ -7,10 +7,10 @@
 
 import UIKit
 
-class SearchPLaceholderView: UIView {
+class SearchPlaceholderView: UIView {
     
     private let imageView: UIImageView = {
-        let image = UIImage(named: "imDca")
+        let image = UIImage(named: "searchPlaceholderImage")
         let imageView = UIImageView()
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
@@ -19,14 +19,13 @@ class SearchPLaceholderView: UIView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Search for companies to calculate potential returns via dollar cost averaging."
+        label.text = "Search for companies to calculate potential returns via dollar cost averaging"
         label.font = UIFont(name: "AvenirNext-Medium", size: 14)!
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
     }()
     
-    // lazy because it won't initialized until it is called
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [imageView, titleLabel])
         stackView.axis = .vertical
@@ -50,7 +49,7 @@ class SearchPLaceholderView: UIView {
             stackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
             stackView.centerYAnchor.constraint(equalTo: centerYAnchor),
             stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 88)
+            imageView.heightAnchor.constraint(equalToConstant: 160)
         ])
     }
     

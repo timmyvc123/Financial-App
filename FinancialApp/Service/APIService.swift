@@ -15,17 +15,16 @@ struct APIService {
         case badRequest
     }
     
-    //select random key (bc API only allows 5 calls per min per key)
-    let keys = ["NYIBW5OFD6LOHB94", "9ZQ1GB630TDTSBU4", "KD3ILYR03028IZX7"]
-    
     var API_KEY: String {
         return keys.randomElement() ?? ""
     }
     
+    //select random key (bc API only allows 5 calls per min per key)
+    let keys = ["NYIBW5OFD6LOHB94", "9ZQ1GB630TDTSBU4", "KD3ILYR03028IZX7"]
+
     func fetchSymbolsPublisher(keywords: String) -> AnyPublisher<SearchResults, Error> {
         
         let result = parseQuery(text: keywords)
-        
         var symbol = String()
         
         switch result {
@@ -35,9 +34,9 @@ struct APIService {
             return Fail(error: error).eraseToAnyPublisher()
         }
         
-        let urlString = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=\(keywords)&apikey=\(API_KEY)"
+        let urlString = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=\(symbol)&apikey=\(API_KEY)"
         let urlResult = parseURL(urlString: urlString)
-        
+
         switch urlResult {
         case .success(let url):
             return URLSession.shared.dataTaskPublisher(for: url)
@@ -49,11 +48,10 @@ struct APIService {
             return Fail(error: error).eraseToAnyPublisher()
         }
     }
- 
+    
     func fetchTimeSeriesMonthlyAdjustedPublisher(keywords: String) -> AnyPublisher<TimeSeriesMonthlyAdjusted, Error> {
         
         let result = parseQuery(text: keywords)
-        
         var symbol = String()
         
         switch result {
@@ -63,8 +61,7 @@ struct APIService {
             return Fail(error: error).eraseToAnyPublisher()
         }
         
-        let urlString = "https://www.alphavantage.co/query?function=TIME_SERIES_MNTHLY_ADJUSTED&keywords=\(keywords)&apikey=\(API_KEY)"
-        
+        let urlString = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=\(symbol)&apikey=\(API_KEY)"
         let urlResult = parseURL(urlString: urlString)
         
         switch urlResult {
@@ -79,8 +76,8 @@ struct APIService {
         }
     }
     
+    
     private func parseQuery(text: String) -> Result<String, Error> {
-        
         if let query = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
             return .success(query)
         } else {
@@ -95,6 +92,5 @@ struct APIService {
             return .failure(APIServiceError.badRequest)
         }
     }
-    
     
 }

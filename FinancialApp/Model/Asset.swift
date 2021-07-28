@@ -9,5 +9,5 @@ import Foundation
 
 struct Asset {
     let searchResult: SearchResult
-    let timeSeriesMnthlyAdjusted: TimeSeriesMonthlyAdjusted
+    let timeSeriesMonthlyAdjusted: TimeSeriesMonthlyAdjusted
 }

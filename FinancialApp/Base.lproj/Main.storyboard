@@ -72,7 +72,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="assetNameLabel" destination="bhs-AU-P9D" id="HVU-So-VnE"/>
-                                    <outlet property="assetSymbol" destination="yYJ-KB-u7J" id="2ca-re-R8Z"/>
+                                    <outlet property="assetSymbolLabel" destination="yYJ-KB-u7J" id="nN3-1p-FBH"/>
                                     <outlet property="assetTypeLabel" destination="MMd-I2-DTC" id="xYd-L4-sCJ"/>
                                 </connections>
                             </tableViewCell>
@@ -349,16 +349,10 @@
                                                                     <rect key="frame" x="0.0" y="32" width="382" height="14"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initial Date of Investment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdZ-d1-eVs">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="136" height="14"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="14"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="14" id="NeH-Ca-G9Q"/>
                                                                             </constraints>
-                                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
-                                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="(USD)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hj-ld-7Ie">
-                                                                            <rect key="frame" x="140" y="0.0" width="242" height="14"/>
                                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
@@ -391,8 +385,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="0jg-94-4ga"/>
                     <connections>
+                        <outlet property="investmentAmountCurrencyLabel" destination="FqB-wq-mLZ" id="I9I-gK-TqP"/>
                         <outlet property="nameLabel" destination="Jnb-rc-qe7" id="Gm9-gG-ErL"/>
                         <outlet property="symbolLabel" destination="khF-i3-uay" id="x1S-4B-Ed4"/>
+                        <outletCollection property="currencyLabels" destination="lPP-Dr-it9" collectionClass="NSMutableArray" id="16k-th-pGp"/>
+                        <outletCollection property="currencyLabels" destination="OvZ-gN-F1T" collectionClass="NSMutableArray" id="w0u-Mb-LdG"/>
+                        <outletCollection property="currencyLabels" destination="rhZ-BY-pXd" collectionClass="NSMutableArray" id="kYF-NV-oNU"/>
                         <segue destination="d05-gc-g51" kind="show" id="ecI-Ft-kKs"/>
                     </connections>
                 </tableViewController>
