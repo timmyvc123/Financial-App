@@ -10,17 +10,25 @@ import UIKit
 class DateSelectionTableViewController: UITableViewController {
     
     var timeSeriesMonthlyAdjusted: TimeSeriesMonthlyAdjusted?
-    var monthInfos: [MonthInfo] = []
+    var selectedIndex: Int?
+    
+    private var monthInfos: [MonthInfo] = []
+    
+    var didSelectDate: ((Int) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMonthInfoViews()
+        setupNavigation()
+    }
+    
+    private func setupNavigation() {
+        title = "Select Date"
     }
     
     private func setupMonthInfoViews() {
-        if let monthInfos = timeSeriesMonthlyAdjusted?.getMonthInfos() {
-            self.monthInfos = monthInfos
-        }
+        
+        monthInfos = timeSeriesMonthlyAdjusted?.getMonthInfos() ?? []
     }
     
     
@@ -39,22 +47,36 @@ extension DateSelectionTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! DateSelectionTableViewCell
-        let monthInfo = monthInfos[indexPath.row]
-        cell.configure(with: monthInfo)
+        let index = indexPath.item
+        let monthInfo = monthInfos[index]
+        let isSelected = index == selectedIndex
+        cell.configure(with: monthInfo, index: index, isSelected: isSelected)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        didSelectDate?(indexPath.item)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 class DateSelectionTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var monthsAgoLabel: UILabel!
     
-    func configure(with monthInfo: MonthInfo) {
-        backgroundColor = .red
+    func configure(with monthInfo: MonthInfo, index: Int, isSelected: Bool) {
+        
+        monthLabel.text = monthInfo.date.MMYYFormat
+        accessoryType = isSelected ? .checkmark : .none
+        
+        if index == 1 {
+            monthsAgoLabel.text = "1 Month Ago"
+        } else if index > 1 {
+            monthsAgoLabel.text = "\(index) Months Ago"
+        } else {
+            monthsAgoLabel.text = "Just Invested"
+        }
+        
     }
 }
