@@ -18,7 +18,8 @@
 		24224D71269966F70077CD2B /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24224D70269966F70077CD2B /* SearchTableViewCell.swift */; };
 		24224D7526996CD20077CD2B /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24224D7426996CD20077CD2B /* APIService.swift */; };
 		24224D7A26996E240077CD2B /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24224D7926996E240077CD2B /* SearchResults.swift */; };
-		2442D4D826B37A0D00DCB358 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2442D4D726B37A0D00DCB358 /* DateExtension.swift */; };
+		2442D4D826B37A0D00DCB358 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2442D4D726B37A0D00DCB358 /* DateExtensions.swift */; };
+		246FCF9326B9DC5B002F418C /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246FCF9226B9DC5B002F418C /* IntExtensions.swift */; };
 		247875D826AF4895005AE6BB /* TimeSeriesMonthlyAdjusted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247875D726AF4895005AE6BB /* TimeSeriesMonthlyAdjusted.swift */; };
 		247875DB26AFCFA9005AE6BB /* CalculatorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247875DA26AFCFA9005AE6BB /* CalculatorTableViewController.swift */; };
 		247875DE26AFD07A005AE6BB /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247875DD26AFD07A005AE6BB /* Asset.swift */; };
@@ -42,7 +43,8 @@
 		24224D70269966F70077CD2B /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		24224D7426996CD20077CD2B /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		24224D7926996E240077CD2B /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
-		2442D4D726B37A0D00DCB358 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		2442D4D726B37A0D00DCB358 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		246FCF9226B9DC5B002F418C /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		247875D726AF4895005AE6BB /* TimeSeriesMonthlyAdjusted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesMonthlyAdjusted.swift; sourceTree = "<group>"; };
 		247875DA26AFCFA9005AE6BB /* CalculatorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTableViewController.swift; sourceTree = "<group>"; };
 		247875DD26AFD07A005AE6BB /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
@@ -145,7 +147,8 @@
 			children = (
 				24899D6526B110470013E1BA /* StringExtensions.swift */,
 				2409A80326B201B1003399C1 /* TextFieldExtensions.swift */,
-				2442D4D726B37A0D00DCB358 /* DateExtension.swift */,
+				2442D4D726B37A0D00DCB358 /* DateExtensions.swift */,
+				246FCF9226B9DC5B002F418C /* IntExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -290,7 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2409A80726B208D2003399C1 /* DateSelectionTableViewController.swift in Sources */,
-				2442D4D826B37A0D00DCB358 /* DateExtension.swift in Sources */,
+				2442D4D826B37A0D00DCB358 /* DateExtensions.swift in Sources */,
 				24224D592698D6810077CD2B /* SearchTableViewController.swift in Sources */,
 				24E6AF4326A9316500C2159D /* UIAnimatable.swift in Sources */,
 				24224D7526996CD20077CD2B /* APIService.swift in Sources */,
@@ -298,6 +301,7 @@
 				247875DB26AFCFA9005AE6BB /* CalculatorTableViewController.swift in Sources */,
 				24224D71269966F70077CD2B /* SearchTableViewCell.swift in Sources */,
 				24224D552698D6810077CD2B /* AppDelegate.swift in Sources */,
+				246FCF9326B9DC5B002F418C /* IntExtensions.swift in Sources */,
 				2409A80426B201B1003399C1 /* TextFieldExtensions.swift in Sources */,
 				24899D6626B110470013E1BA /* StringExtensions.swift in Sources */,
 				247875D826AF4895005AE6BB /* TimeSeriesMonthlyAdjusted.swift in Sources */,
