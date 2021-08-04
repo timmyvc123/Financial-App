@@ -10,7 +10,7 @@ import UIKit
 class SearchPlaceholderView: UIView {
     
     private let imageView: UIImageView = {
-        let image = UIImage(named: "searchPlaceholderImage")
+        let image = UIImage(named: "imLaunch")
         let imageView = UIImageView()
         imageView.image = image
         imageView.contentMode = .scaleAspectFit

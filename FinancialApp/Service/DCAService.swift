@@ -11,45 +11,81 @@ struct DCAService {
     
     func calculate(asset: Asset,
                    initialInvestmentAmount: Double,
-                   monthlyDollarCostAvergaingAmount: Double,
+                   monthlyDollarCostAveragingAmount: Double,
                    initialDateOfInvestmentIndex: Int) -> DCAResult {
         
         let investmentAmount = getInvestmentAmount(initialInvestmentAmount: initialInvestmentAmount,
-                                                   monthlyDollarCostAvergaingAmount: monthlyDollarCostAvergaingAmount,
+                                                   monthlyDollarCostAveragingAmount: monthlyDollarCostAveragingAmount,
                                                    initialDateOfInvestmentIndex: initialDateOfInvestmentIndex)
         
-        let latestSharePrice = getLatetSharePrice(asset: asset)
-        let currentValue = getCurrentValue(numOfShares: 100, latestSharePrice: latestSharePrice)
+        let latestSharePrice = getLatestSharePrice(asset: asset)
         
-        return .init(currentValue: 0,
+        let numberOfShares = getNumberOfShares(asset: asset,
+                                               initialInvestmentAmount: initialInvestmentAmount,
+                                               monthlyDollarCostAveragingAmount: monthlyDollarCostAveragingAmount,
+                                               initialDateOfInvestmentIndex: initialDateOfInvestmentIndex)
+
+        let currentValue = getCurrentValue(numberOfShares: numberOfShares, latestSharePrice: latestSharePrice)
+        
+        let isProfitable = currentValue > investmentAmount
+        
+        let gain = currentValue - investmentAmount
+        
+        let yield = gain / investmentAmount
+        
+        let annualReturn = getAnnualReturn(currentValue: currentValue,
+                                           investmentAmount: investmentAmount,
+                                           initialDateOfInvestmentIndex: initialDateOfInvestmentIndex)
+        
+        return .init(currentValue: currentValue,
                      investmentAmount: investmentAmount,
-                     gain: 0,
-                     yield: 0,
-                     annualReturn: 0)
+                     gain: gain,
+                     yield: yield,
+                     annualReturn: annualReturn,
+                     isProfitable: isProfitable)
     }
     
-    private func getInvestmentAmount(initialInvestmentAmount: Double,
-                                     monthlyDollarCostAvergaingAmount: Double,
+    func getInvestmentAmount(initialInvestmentAmount: Double,
+                                     monthlyDollarCostAveragingAmount: Double,
                                      initialDateOfInvestmentIndex: Int) -> Double {
-        
         var totalAmount = Double()
         totalAmount += initialInvestmentAmount
-        let dollarCostAveragingAmount = initialDateOfInvestmentIndex.doubleValue * monthlyDollarCostAvergaingAmount
+        let dollarCostAveragingAmount = initialDateOfInvestmentIndex.doubleValue * monthlyDollarCostAveragingAmount
         totalAmount += dollarCostAveragingAmount
         return totalAmount
     }
     
-    private func getCurrentValue(numOfShares: Double, latestSharePrice: Double) -> Double {
-        //currentValue = numOfShares * latest Share Price
-        return numOfShares * latestSharePrice
+    private func getAnnualReturn(currentValue: Double, investmentAmount: Double, initialDateOfInvestmentIndex: Int) -> Double {
+        let rate = currentValue / investmentAmount
+        let years = (initialDateOfInvestmentIndex.doubleValue + 1) / 12
+        let result = pow(rate, (1 / years)) - 1
+        return result
     }
     
-    private func getLatetSharePrice(asset: Asset) -> Double {
-        return asset.timeSeriesMonthlyAdjusted.getMonthInfos().first?.adjustedClose ?? 0
-        
+    private func getCurrentValue(numberOfShares: Double, latestSharePrice: Double) -> Double {
+        return numberOfShares * latestSharePrice
     }
+    
+    private func getLatestSharePrice(asset: Asset) -> Double {
+        return asset.timeSeriesMonthlyAdjusted.getMonthInfos().first?.adjustedClose ?? 0
+    }
+    
+    private func getNumberOfShares(asset: Asset,
+                                   initialInvestmentAmount: Double,
+                                   monthlyDollarCostAveragingAmount: Double,
+                                   initialDateOfInvestmentIndex: Int) -> Double {
+        var totalShares = Double()
+        let initialInvestmentOpenPrice = asset.timeSeriesMonthlyAdjusted.getMonthInfos()[initialDateOfInvestmentIndex].adjustedOpen
+        let initialInvestmentShares = initialInvestmentAmount / initialInvestmentOpenPrice
+        totalShares += initialInvestmentShares
+        asset.timeSeriesMonthlyAdjusted.getMonthInfos().prefix(initialDateOfInvestmentIndex).forEach { (monthInfo) in
+            let dcaInvestmentShares = monthlyDollarCostAveragingAmount / monthInfo.adjustedOpen
+            totalShares += dcaInvestmentShares
+        }
+        return totalShares
+    }
+    
 }
-
 
 struct DCAResult {
     let currentValue: Double
@@ -57,4 +93,5 @@ struct DCAResult {
     let gain: Double
     let yield: Double
     let annualReturn: Double
+    let isProfitable: Bool
 }
